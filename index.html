@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Ontology Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .zoom-level {
+            display: inline-block;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            min-width: 50px;
+            text-align: center;
+        }
+        #mermaid-container {
+            overflow: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            transition: transform 0.3s ease;
+            transform-origin: top left;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Ontology Graph</h1>
+        
+        <div class="controls">
+            <button id="zoom-in">Zoom In (+)</button>
+            <span class="zoom-level" id="zoom-level">100%</span>
+            <button id="zoom-out">Zoom Out (-)</button>
+            <button id="reset-zoom">Reset Zoom</button>
+        </div>
+        
+        <div id="mermaid-container">
+            <div class="mermaid">
+                graph LR
+                %% Main Domain
+                AI[Artificial Intelligence]
+                
+                %% First Level Split 
+                AI --> TRAD[Traditional AI]
+                AI --> ML[Machine Learning]
+                AI --> APP[Applied Domains]
+                
+                %% Traditional AI
+                TRAD --> SYM[Symbolic AI]
+                TRAD --> LOG[Logic & Reasoning]
+                
+                SYM --> KR[Knowledge Representation]
+                KR --> ONT[Ontologies]
+                KR --> KG[Knowledge Graphs]
+                KR --> ES[Expert Systems]
+                
+                %% Applications of Traditional AI
+                ES -.-> |used in| MED1[Medical Diagnosis]
+                ES -.-> |used in| FIN1[Financial Planning]
+                
+                %% Machine Learning Core
+                ML --> CML[Classical ML]
+                ML --> DL[Deep Learning]
+                ML --> RL[Reinforcement Learning]
+                
+                %% Deep Learning Branches
+                DL --> DIS[Discriminative Models]
+                DL --> GEN[Generative Models]
+                
+                %% Discriminative Models
+                DIS --> CNN[CNNs]
+                CNN --> CNNM[CNN Models]
+                CNNM --> RES[ResNet]
+                CNNM --> VGG[VGG]
+                CNNM --> EFF[EfficientNet]
+                CNNM --> DEN[DenseNet]
+                
+                DIS --> RNN[RNNs]
+                RNN --> LSTM[LSTM]
+                RNN --> GRU[GRU]
+                RNN --> BiRNN[Bidirectional RNN]
+                
+                %% Classical ML Details
+                CML --> SUP[Supervised Learning]
+                CML --> UNS[Unsupervised Learning]
+                
+                %% Supervised Learning Branch
+                SUP --> CLA[Classification]
+                SUP --> REG[Regression]
+                
+                CLA --> TREE[Tree-Based Methods]
+                TREE --> DT[Decision Trees]
+                TREE --> RF[Random Forests]
+                TREE --> XGB[XGBoost]
+                TREE --> LGBM[LightGBM]
+                TREE --> CAT[CatBoost]
+                
+                CLA --> SVM[Support Vector Machines]
+                CLA --> KNN[K-Nearest Neighbors]
+                CLA --> NB[Naive Bayes]
+                CLA --> LR[Logistic Regression]
+                
+                %% Applications of Classification
+                CLA -.-> |used in| SPAM[Spam Detection]
+                CLA -.-> |used in| FRAUD[Fraud Detection]
+                
+                REG --> LIN[Linear Methods]
+                LIN --> LINR[Linear Regression]
+                LIN --> RID[Ridge Regression]
+                LIN --> LAS[Lasso]
+                LIN --> EN[Elastic Net]
+                
+                REG --> NLIN[Non-Linear Methods]
+                NLIN --> SVR[SVR]
+                NLIN --> KRR[Kernel Ridge]
+                
+                %% Applications of Regression
+                REG -.-> |used in| PRICE[Price Prediction]
+                REG -.-> |used in| DEMAND[Demand Forecasting]
+                
+                %% Unsupervised Learning Branch
+                UNS --> CLU[Clustering]
+                UNS --> DRE[Dimensionality Reduction]
+                UNS --> ARM[Association Rules]
+                
+                CLU --> KME[K-Means]
+                CLU --> HCL[Hierarchical]
+                CLU --> DBS[DBSCAN]
+                CLU --> GMM[Gaussian Mixture]
+                CLU --> SPE[Spectral Clustering]
+                
+                DRE --> PCA[PCA]
+                DRE --> TSN[t-SNE]
+                DRE --> UMP[UMAP]
+                DRE --> AE[Autoencoders]
+                
+                %% Generative Models
+                GEN --> TRF[Transformers]
+                TRF --> LLM[Large Language Models]
+                LLM --> BERT[BERT Family]
+                LLM --> GPT[GPT Family]
+                LLM --> T5[T5 Family]
+                LLM --> LLAMA[LLaMA Family]
+                
+                GEN --> GANS[GANs]
+                GANS --> DCGAN[DCGAN]
+                GANS --> STGAN[StyleGAN]
+                GANS --> CYGAN[CycleGAN]
+                
+                GEN --> DIF[Diffusion Models]
+                DIF --> DDPM[DDPM]
+                DIF --> SD[Stable Diffusion]
+                DIF --> LDM[Latent Diffusion]
+                
+                %% Applications of Generative AI
+                GANS -.-> |used in| SYNTH[Synthetic Data] 
+                DIF -.-> |used in| IMG[Image Generation]
+                
+                %% Reinforcement Learning Branch
+                RL --> MBR[Model-Based RL]
+                RL --> MFR[Model-Free RL]
+                RL --> DRL[Deep RL]
+                
+                MBR --> DYNA[Dyna]
+                MBR --> PLAN[Planning]
+                MBR --> AZ[AlphaZero]
+                
+                MFR --> QL[Q-Learning]
+                MFR --> SAR[SARSA]
+                MFR --> PG[Policy Gradient]
+                
+                DRL --> DQN[DQN]
+                DRL --> PPO[PPO]
+                DRL --> A3C[A3C]
+                DRL --> SAC[SAC]
+                
+                %% Applications of RL
+                RL -.-> |used in| ROBOT[Robotics]
+                RL -.-> |used in| GAME[Game AI]
+                
+                %% Applied Domains
+                APP --> CV[Computer Vision]
+                APP --> NLP[Natural Language Processing]
+                APP --> ROBOT[Robotics]
+                APP --> REC[Recommender Systems]
+                
+                %% Cross-Domain Connections
+                DL ==> |enables| CV
+                DL ==> |enables| NLP
+                RL ==> |used in| ROBOT
+                CV ==> |supports| ROBOT
+                DL ==> |powers| REC
+                
+                %% Real-World Applications 
+                CV -.-> |used in| AV[Autonomous Vehicles]
+                CV -.-> |used in| MV[Medical Imaging]
+                NLP -.-> |used in| MT[Machine Translation]
+                NLP -.-> |used in| CS[Customer Service]
+                ROBOT -.-> |used in| MFG[Manufacturing]
+                REC -.-> |used in| ECOM[E-Commerce]
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>AI Ontology Graph created with Mermaid.js | <a href="https://github.com/insen5/ai-ontology-graph" target="_blank">View on GitHub</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Mermaid
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose',
+                flowchart: {
+                    htmlLabels: true,
+                    curve: 'basis',
+                    diagramPadding: 8,
+                    nodeSpacing: 50,
+                    rankSpacing: 100,
+                    useMaxWidth: false,
+                }
+            });
+            
+            // Zoom functionality
+            const container = document.getElementById('mermaid-container');
+            const zoomInBtn = document.getElementById('zoom-in');
+            const zoomOutBtn = document.getElementById('zoom-out');
+            const resetZoomBtn = document.getElementById('reset-zoom');
+            const zoomLevelDisplay = document.getElementById('zoom-level');
+            
+            let zoomLevel = 1;
+            const zoomFactor = 0.1;
+            const maxZoom = 3;
+            const minZoom = 0.5;
+            
+            function updateZoom() {
+                container.style.transform = `scale(${zoomLevel})`;
+                zoomLevelDisplay.textContent = `${Math.round(zoomLevel * 100)}%`;
+            }
+            
+            zoomInBtn.addEventListener('click', function() {
+                if (zoomLevel < maxZoom) {
+                    zoomLevel += zoomFactor;
+                    updateZoom();
+                }
+            });
+            
+            zoomOutBtn.addEventListener('click', function() {
+                if (zoomLevel > minZoom) {
+                    zoomLevel -= zoomFactor;
+                    updateZoom();
+                }
+            });
+            
+            resetZoomBtn.addEventListener('click', function() {
+                zoomLevel = 1;
+                updateZoom();
+            });
+            
+            // Add keyboard shortcuts for zooming
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    if (e.key === '=' || e.key === '+') {
+                        e.preventDefault();
+                        if (zoomLevel < maxZoom) {
+                            zoomLevel += zoomFactor;
+                            updateZoom();
+                        }
+                    } else if (e.key === '-') {
+                        e.preventDefault();
+                        if (zoomLevel > minZoom) {
+                            zoomLevel -= zoomFactor;
+                            updateZoom();
+                        }
+                    } else if (e.key === '0') {
+                        e.preventDefault();
+                        zoomLevel = 1;
+                        updateZoom();
+                    }
+                }
+            });
+            
+            // Add mouse wheel zoom support
+            container.addEventListener('wheel', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    if (e.deltaY < 0 && zoomLevel < maxZoom) {
+                        // Scroll up, zoom in
+                        zoomLevel += zoomFactor;
+                    } else if (e.deltaY > 0 && zoomLevel > minZoom) {
+                        // Scroll down, zoom out
+                        zoomLevel -= zoomFactor;
+                    }
+                    updateZoom();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
