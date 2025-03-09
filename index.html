@@ -72,8 +72,17 @@
             padding: 10px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Changed from center to flex-start */
             height: calc(100vh - 130px);
+        }
+        
+        .mermaid-wrapper {
+            padding: 200px 50px; /* Increased top/bottom padding to 200px */
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from center to flex-start to prevent top cutoff */
+            margin-top: 50px; /* Added margin at the top */
         }
         
         .mermaid {
@@ -102,7 +111,8 @@
         </div>
         
         <div id="mermaid-container">
-            <div class="mermaid">
+            <div class="mermaid-wrapper">
+                <div class="mermaid">
                 graph LR
                 %% Main Domain
                 AI[Artificial Intelligence]
@@ -266,6 +276,7 @@
                 ROBOT -.-> |used in| MFG[Manufacturing]
                 REC -.-> |used in| ECOM[E-Commerce]
             </div>
+            </div>
         </div>
         
         <div class="footer">
@@ -298,9 +309,9 @@
             const resetZoomBtn = document.getElementById('reset-zoom');
             const zoomLevelDisplay = document.getElementById('zoom-level');
             
-            let zoomLevel = 1;
+            let zoomLevel = 3; // Default zoom set to 300%
             const zoomFactor = 0.1;
-            const maxZoom = 3;
+            const maxZoom = 5; // Increased max zoom
             const minZoom = 0.5;
             
             // Wait for Mermaid to render the graph
@@ -311,7 +322,10 @@
                     mermaidGraph.style.maxWidth = '100%';
                     mermaidGraph.style.maxHeight = '100%';
                     mermaidGraph.style.transition = 'transform 0.3s ease';
-                    mermaidGraph.style.transformOrigin = 'center center';
+                    mermaidGraph.style.transformOrigin = 'top center'; /* Changed from center center to top center */
+                    
+                    // Apply initial zoom immediately
+                    updateZoom();
                 }
             }, 1000);
             
@@ -338,7 +352,7 @@
             });
             
             resetZoomBtn.addEventListener('click', function() {
-                zoomLevel = 1;
+                zoomLevel = 3; // Reset to 300% instead of 100%
                 updateZoom();
             });
             
@@ -359,7 +373,7 @@
                         }
                     } else if (e.key === '0') {
                         e.preventDefault();
-                        zoomLevel = 1;
+                        zoomLevel = 3; // Reset to 300% instead of 100%
                         updateZoom();
                     }
                 }
