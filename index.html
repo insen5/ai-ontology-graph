@@ -70,12 +70,15 @@
             flex: 1;
             border: none;
             padding: 10px;
-            transition: transform 0.3s ease;
-            transform-origin: top left;
             display: flex;
             justify-content: center;
             align-items: center;
             height: calc(100vh - 130px);
+        }
+        
+        .mermaid {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
         }
         .footer {
             text-align: center;
@@ -289,6 +292,7 @@
             
             // Zoom functionality
             const container = document.getElementById('mermaid-container');
+            const mermaidGraph = document.querySelector('.mermaid svg'); // Get the SVG element after Mermaid renders it
             const zoomInBtn = document.getElementById('zoom-in');
             const zoomOutBtn = document.getElementById('zoom-out');
             const resetZoomBtn = document.getElementById('reset-zoom');
@@ -299,8 +303,23 @@
             const maxZoom = 3;
             const minZoom = 0.5;
             
+            // Wait for Mermaid to render the graph
+            setTimeout(() => {
+                const mermaidGraph = document.querySelector('.mermaid svg');
+                if (mermaidGraph) {
+                    // Apply initial styles to the SVG
+                    mermaidGraph.style.maxWidth = '100%';
+                    mermaidGraph.style.maxHeight = '100%';
+                    mermaidGraph.style.transition = 'transform 0.3s ease';
+                    mermaidGraph.style.transformOrigin = 'center center';
+                }
+            }, 1000);
+            
             function updateZoom() {
-                container.style.transform = `scale(${zoomLevel})`;
+                const mermaidGraph = document.querySelector('.mermaid svg');
+                if (mermaidGraph) {
+                    mermaidGraph.style.transform = `scale(${zoomLevel})`;
+                }
                 zoomLevelDisplay.textContent = `${Math.round(zoomLevel * 100)}%`;
             }
             
@@ -358,6 +377,40 @@
                         zoomLevel -= zoomFactor;
                     }
                     updateZoom();
+                }
+            });
+            
+            // Add panning functionality
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+            
+            container.addEventListener('mousedown', function(e) {
+                if (!e.ctrlKey && !e.metaKey) {
+                    isDragging = true;
+                    startX = e.pageX - container.offsetLeft;
+                    startY = e.pageY - container.offsetTop;
+                    scrollLeft = container.scrollLeft;
+                    scrollTop = container.scrollTop;
+                }
+            });
+            
+            container.addEventListener('mouseleave', function() {
+                isDragging = false;
+            });
+            
+            container.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+            
+            container.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    const x = e.pageX - container.offsetLeft;
+                    const y = e.pageY - container.offsetTop;
+                    const walkX = (x - startX) * 2;
+                    const walkY = (y - startY) * 2;
+                    container.scrollLeft = scrollLeft - walkX;
+                    container.scrollTop = scrollTop - walkY;
                 }
             });
         });
