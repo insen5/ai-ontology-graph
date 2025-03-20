@@ -394,7 +394,7 @@
             </div>
             <div class="footer-separator"></div>
             <div class="footer-right">
-                <span class="contact-message">Clinical insights to AI implementation: 13 years of translating healthcare needs into technology solutions. Ready to collaborate?</span>
+                <span class="contact-message">Healthcare insights to AI implementation: <span id="experience-years">13</span> years of translating health needs into technology solutions. Let's connect.</span>
 
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/rishi-sen/" target="_blank" title="LinkedIn" style="margin: 0 10px;">
@@ -413,6 +413,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Update years of experience automatically
+            // Change this to the year you started working in healthcare/AI
+            const careerStartYear = 2012;
+            const currentYear = new Date().getFullYear();
+            const yearsOfExperience = currentYear - careerStartYear;
+            document.getElementById('experience-years').textContent = yearsOfExperience;
             // Initialize Mermaid
             mermaid.initialize({
                 startOnLoad: true,
