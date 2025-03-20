@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Ontology Graph</title>
+    <title>AI Taxonomy | Healthcare Technology & AI Implementation</title>
+    <meta name="description" content="Comprehensive AI taxonomy visualization mapping artificial intelligence concepts, machine learning techniques, and healthcare applications. Created by Dr. Rishi Sen with 13+ years of healthcare technology experience.">
+    <meta name="keywords" content="AI taxonomy, artificial intelligence, machine learning, healthcare AI, medical technology, clinical AI implementation, Dr. Rishi Sen">
+    <meta name="author" content="Dr. Rishi Sen">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="AI Taxonomy | Healthcare Technology & AI Implementation">
+    <meta property="og:description" content="Comprehensive AI taxonomy visualization mapping artificial intelligence concepts, machine learning techniques, and healthcare applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI Taxonomy by Dr. Rishi Sen">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Taxonomy | Healthcare Technology">
+    <meta name="twitter:description" content="Comprehensive AI taxonomy visualization for healthcare applications.">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/ai-taxonomy">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <style>
         body {
@@ -30,6 +44,16 @@
             text-align: center;
             margin: 15px 0;
             padding: 0 20px;
+            font-size: 1.8em;
+        }
+        
+        .author {
+            font-style: italic;
+            font-size: 0.8em;
+            color: #666;
+            margin-top: -10px;
+            text-align: center;
+            display: block;
         }
         .controls {
             display: flex;
@@ -69,20 +93,21 @@
             overflow: auto;
             flex: 1;
             border: none;
-            padding: 10px;
+            padding: 10px 10px 40px 10px; /* Added bottom padding */
             display: flex;
             justify-content: center;
             align-items: flex-start; /* Changed from center to flex-start */
             height: calc(100vh - 130px);
+            margin-bottom: 20px; /* Added margin at the bottom */
         }
         
         .mermaid-wrapper {
-            padding: 200px 50px; /* Increased top/bottom padding to 200px */
+            padding: 50px 50px 50px 50px; /* Restored normal padding */
             min-height: 100%;
             display: flex;
             justify-content: center;
             align-items: flex-start; /* Changed from center to flex-start to prevent top cutoff */
-            margin-top: 50px; /* Added margin at the top */
+            margin-top: 20px; /* Reduced margin at the top */
         }
         
         .mermaid {
@@ -90,18 +115,102 @@
             transform-origin: center center;
         }
         .footer {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 14px;
             color: #666;
-            padding: 10px;
+            padding: 15px 20px;
             background-color: #f8f8f8;
             border-top: 1px solid #ddd;
+            margin-top: 40px; /* Adding space above the footer */
+        }
+        
+        .footer-left, .footer-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-separator {
+            height: 20px;
+            width: 1px;
+            background-color: #ccc;
+            margin: 0 15px;
+        }
+        
+        .contact-message {
+            font-weight: 600;
+            color: #444;
+            margin-right: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        .social-icons img {
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .footer-separator {
+                display: none;
+            }
+            
+            .footer-right {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-message {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
     </style>
+    <!-- Structured Data for AI Ontology Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AI Taxonomy",
+      "description": "Comprehensive AI taxonomy visualization mapping artificial intelligence concepts, machine learning techniques, and healthcare applications.",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Rishi Sen"
+      },
+      "keywords": "AI taxonomy, artificial intelligence, machine learning, healthcare AI, medical technology",
+      "datePublished": "2025-03-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/ai-taxonomy"
+      }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>AI Ontology Graph</h1>
+        <header>
+            <h1>AI Taxonomy</h1>
+            <span class="author">by Dr. Rishi Sen</span>
+        </header>
         
         <div class="controls">
             <button id="zoom-in">Zoom In (+)</button>
@@ -279,8 +388,26 @@
             </div>
         </div>
         
-        <div class="footer">
-            <p>AI Ontology Graph created with Mermaid.js | <a href="https://github.com/insen5/ai-ontology-graph" target="_blank">View on GitHub</a></p>
+        <footer class="footer">
+            <div class="footer-left">
+                <p>AI Taxonomy created with Mermaid.js | <a href="https://github.com/insen5/ai-taxonomy" target="_blank" rel="noopener">View on GitHub</a></p>
+            </div>
+            <div class="footer-separator"></div>
+            <div class="footer-right">
+                <span class="contact-message">Clinical insights to AI implementation: 13 years of translating healthcare needs into technology solutions. Ready to collaborate?</span>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/rishi-sen/" target="_blank" title="LinkedIn" style="margin: 0 10px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="24" height="24">
+                    </a>
+                    <a href="https://medium.com/@dr.rishisen" target="_blank" title="Medium" style="margin: 0 10px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium" width="24" height="24">
+                    </a>
+                    <a href="https://wa.me/919886691233" target="_blank" title="WhatsApp" style="margin: 0 10px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="24" height="24">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
